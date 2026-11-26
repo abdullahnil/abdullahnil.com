@@ -477,6 +477,91 @@
             stroke: #00f2fe !important;
         }
 
+        /* Öne Çıkan Proje (Drivux) */
+        .tv-card-lg.tv-card-featured {
+            width: 380px;
+            position: relative;
+            overflow: hidden;
+            background-image:
+                radial-gradient(circle at 100% 0%, rgba(66, 133, 244, 0.28) 0%, transparent 55%),
+                radial-gradient(circle at 0% 100%, rgba(52, 168, 83, 0.18) 0%, transparent 50%);
+            border: 1px solid rgba(66, 133, 244, 0.35) !important;
+            border-bottom: 3px solid #4285f4 !important;
+        }
+
+        .tv-card-featured:hover,
+        .tv-card-featured:focus {
+            border-color: #4285f4 !important;
+            box-shadow: 0 12px 34px rgba(66, 133, 244, 0.25);
+        }
+
+        .tv-card-featured svg {
+            stroke: #4285f4 !important;
+        }
+
+        .tv-card-featured .badge-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .badge-featured {
+            background: var(--accent-gradient) !important;
+            color: #ffffff !important;
+            border: none !important;
+        }
+
+        /* GitHub Repo Kartları (otomatik) */
+        .tv-card-repo {
+            border-bottom: 3px solid var(--repo-color, var(--accent-color)) !important;
+        }
+
+        .tv-card-repo svg {
+            stroke: var(--repo-color, var(--text-muted));
+        }
+
+        .repo-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .repo-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .repo-meta .lang-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--repo-color, var(--accent-color));
+        }
+
+        .tv-card .repo-meta svg {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            transform: none;
+        }
+
+        .repo-skeleton {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        @media (max-width: 640px) {
+            .tv-card-lg.tv-card-featured {
+                width: 290px;
+            }
+        }
+
         .tv-card:hover,
         .tv-card:focus {
             transform: translateY(-6px);
@@ -1404,6 +1489,36 @@
                         kaydırın</span>
                 </h3>
                 <div class="tv-ribbon">
+                    <!-- ÖNE ÇIKAN: Drivux -->
+                    <a href="https://abdullahnil.github.io/drivux/" target="_blank"
+                        class="tv-card tv-card-lg tv-card-featured" data-repo="drivux">
+                        <div class="card-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+                                <path d="m9 15 3-3 3 3" />
+                                <path d="M12 12v6" />
+                            </svg>
+                            <div class="badge-row">
+                                <span class="badge badge-featured" data-tr="Öne Çıkan" data-en="Featured">Öne Çıkan</span>
+                                <span class="badge"
+                                    style="background: rgba(66, 133, 244, 0.12); color: #4285f4; border-color: rgba(66, 133, 244, 0.25);">Linux
+                                    App</span>
+                            </div>
+                        </div>
+                        <div class="tv-card-bottom">
+                            <div class="tv-card-title">Drivux</div>
+                            <div class="tv-card-desc"
+                                data-tr="Linux için Google Drive istemcisi: Drive'ı disk olarak bağla, klasörleri çift yönlü senkronize et."
+                                data-en="Google Drive client for Linux: mount Drive as a disk and keep folders in two-way sync.">
+                                Linux için Google Drive istemcisi: Drive'ı disk olarak bağla, klasörleri çift yönlü
+                                senkronize et.</div>
+                            <div class="repo-meta">
+                                <span><span class="lang-dot" style="background:#3572A5"></span>Python · GTK 4</span>
+                                <span class="featured-stars"></span>
+                            </div>
+                        </div>
+                    </a>
                     <!-- YouTube - nil Archive -->
                     <a href="https://www.youtube.com/@nil.archive747" target="_blank"
                         class="tv-card tv-card-lg tv-card-archive">
@@ -1484,6 +1599,21 @@
                                 İçerik Ağacım</div>
                         </div>
                     </a>
+                </div>
+            </section>
+
+            <!-- GITHUB AÇIK KAYNAK PROJELERİ (GitHub API'den otomatik çekilir) -->
+            <section class="tv-ribbon-container" id="github-projeler">
+                <h3 class="section-title">
+                    <span data-tr="GitHub'daki Açık Kaynak Projelerim" data-en="Open Source Projects on GitHub">GitHub'daki
+                        Açık Kaynak Projelerim</span>
+                    <span class="sub-info" data-tr="• Otomatik güncellenir" data-en="• Updated automatically">•
+                        Otomatik güncellenir</span>
+                </h3>
+                <div class="tv-ribbon" id="github-ribbon">
+                    <div class="tv-card tv-card-lg repo-skeleton"><div class="tv-card-bottom"><div class="tv-card-title">…</div></div></div>
+                    <div class="tv-card tv-card-lg repo-skeleton"><div class="tv-card-bottom"><div class="tv-card-title">…</div></div></div>
+                    <div class="tv-card tv-card-lg repo-skeleton"><div class="tv-card-bottom"><div class="tv-card-title">…</div></div></div>
                 </div>
             </section>
 
@@ -1687,10 +1817,142 @@
                     window.location.hash = '';
                 }
 
+                // ===== GITHUB PROJELERİ (OTOMATİK) =====
+                // Herkese açık repolar GitHub API'den çekilir; yeni repo açınca siteye kendiliğinden eklenir.
+                const GITHUB_USER = 'abdullahnil';
+                const GITHUB_HIDDEN_REPOS = ['abdullahnil.com'];   // Hiç gösterilmeyecek repolar
+                const GITHUB_FEATURED_REPOS = ['drivux'];          // Yukarıda öne çıkan kart olarak gösterilenler
+                const GITHUB_CACHE_KEY = 'gh-repos-cache-v1';
+                const GITHUB_CACHE_TTL = 60 * 60 * 1000;            // 1 saat
+
+                // API'ye ulaşılamazsa (ör. istek limiti) kullanılacak yedek liste
+                const GITHUB_FALLBACK_REPOS = [
+                    { name: 'drivux', description: 'Google Drive client for Linux: mount Drive as a disk and keep folders in two-way sync. GTK 4 / libadwaita, powered by rclone.', language: 'Python', stargazers_count: 0, pushed_at: '2026-11-22T22:58:05Z', html_url: 'https://github.com/abdullahnil/drivux' },
+                    { name: 'fedora-davinci-resolve', description: "Fedora'ya DaVinci Resolve'u tek komutla kuran betik (davincibox)", language: 'Shell', stargazers_count: 0, pushed_at: '2026-11-26T10:36:40Z', html_url: 'https://github.com/abdullahnil/fedora-davinci-resolve' },
+                    { name: 'xdm-builder', description: 'XDM Auto-Builder For Advanced Users', language: null, stargazers_count: 0, pushed_at: '2026-11-22T06:01:59Z', html_url: 'https://github.com/abdullahnil/xdm-builder' },
+                    { name: 'resolve-cevirici', description: "Videoları ücretsiz DaVinci Resolve'un Linux'ta açabileceği biçime çevirir (NVIDIA GPU destekli)", language: 'Shell', stargazers_count: 0, pushed_at: '2026-11-20T17:12:10Z', html_url: 'https://github.com/abdullahnil/resolve-cevirici' },
+                    { name: 'gnome-shortcut-maker', description: 'Easy Application Shortcut Maker App', language: 'Python', stargazers_count: 0, pushed_at: '2026-11-14T22:03:06Z', html_url: 'https://github.com/abdullahnil/gnome-shortcut-maker' },
+                    { name: 'diyanet-prayertimes-gnome', description: 'GNOME Shell extension: countdown to the next prayer in the top bar, with Diyanet or Aladhan prayer times (Turkish/English)', language: 'JavaScript', stargazers_count: 0, pushed_at: '2026-11-13T21:21:31Z', html_url: 'https://github.com/abdullahnil/diyanet-prayertimes-gnome' },
+                    { name: 'NilTab-Web', description: null, language: 'JavaScript', stargazers_count: 0, pushed_at: '2026-11-13T20:35:40Z', html_url: 'https://github.com/abdullahnil/NilTab-Web' },
+                    { name: 'fedora-post-install', description: 'Useful Script for Fedora', language: 'Shell', stargazers_count: 0, pushed_at: '2026-11-13T18:42:10Z', html_url: 'https://github.com/abdullahnil/fedora-post-install' },
+                    { name: 'waydroid-on-demand', description: null, language: 'Shell', stargazers_count: 0, pushed_at: '2026-11-11T08:40:59Z', html_url: 'https://github.com/abdullahnil/waydroid-on-demand' }
+                ];
+
+                const LANGUAGE_COLORS = {
+                    Python: '#3572A5', JavaScript: '#f1e05a', TypeScript: '#3178c6', Shell: '#89e051',
+                    HTML: '#e34c26', CSS: '#663399', C: '#555555', 'C++': '#f34b7d', Rust: '#dea584',
+                    Go: '#00ADD8', Kotlin: '#A97BFF', Java: '#b07219', Dart: '#00B4AB', Vue: '#41b883'
+                };
+
+                const REPO_ICONS = {
+                    terminal: '<polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/>',
+                    code: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+                    box: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>'
+                };
+
+                function escapeHtml(str) {
+                    return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+                }
+
+                function relativeTime(dateStr, lang) {
+                    const diffSec = (new Date(dateStr).getTime() - Date.now()) / 1000;
+                    const units = [['year', 31536000], ['month', 2592000], ['week', 604800], ['day', 86400], ['hour', 3600], ['minute', 60]];
+                    const rtf = new Intl.RelativeTimeFormat(lang === 'tr' ? 'tr' : 'en', { numeric: 'auto' });
+                    for (const [unit, sec] of units) {
+                        if (Math.abs(diffSec) >= sec) return rtf.format(Math.round(diffSec / sec), unit);
+                    }
+                    return rtf.format(0, 'minute');
+                }
+
+                function renderRepoCard(repo) {
+                    const color = LANGUAGE_COLORS[repo.language] || 'var(--accent-color)';
+                    const icon = repo.language === 'Shell' ? REPO_ICONS.terminal : (repo.language ? REPO_ICONS.code : REPO_ICONS.box);
+                    const descTr = repo.description ? escapeHtml(repo.description) : 'Henüz açıklama eklenmedi.';
+                    const descEn = repo.description ? escapeHtml(repo.description) : 'No description yet.';
+                    const updTr = 'Güncellendi: ' + relativeTime(repo.pushed_at, 'tr');
+                    const updEn = 'Updated ' + relativeTime(repo.pushed_at, 'en');
+                    const stars = repo.stargazers_count > 0
+                        ? `<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>${repo.stargazers_count}</span>`
+                        : '';
+                    const langBadge = repo.language
+                        ? `<span><span class="lang-dot"></span>${escapeHtml(repo.language)}</span>`
+                        : '';
+                    return `
+                    <a href="${escapeHtml(repo.html_url)}" target="_blank" rel="noopener" class="tv-card tv-card-lg tv-card-repo" style="--repo-color: ${color};">
+                        <div class="card-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon}</svg>
+                            <span class="badge">GitHub</span>
+                        </div>
+                        <div class="tv-card-bottom">
+                            <div class="tv-card-title">${escapeHtml(repo.name)}</div>
+                            <div class="tv-card-desc" data-tr="${descTr}" data-en="${descEn}">${currentLang === 'tr' ? descTr : descEn}</div>
+                            <div class="repo-meta">
+                                ${langBadge}
+                                ${stars}
+                                <span data-tr="${updTr}" data-en="${updEn}">${currentLang === 'tr' ? updTr : updEn}</span>
+                            </div>
+                        </div>
+                    </a>`;
+                }
+
+                function renderGithubRepos(repos) {
+                    const ribbon = document.getElementById('github-ribbon');
+                    if (!ribbon) return;
+
+                    const visible = repos
+                        .filter(r => !r.fork && !r.archived)
+                        .filter(r => !GITHUB_HIDDEN_REPOS.includes(r.name.toLowerCase()))
+                        .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+
+                    // Öne çıkan kartlardaki yıldız sayısını güncelle
+                    GITHUB_FEATURED_REPOS.forEach(name => {
+                        const repo = visible.find(r => r.name.toLowerCase() === name);
+                        const el = document.querySelector(`[data-repo="${name}"] .featured-stars`);
+                        if (repo && el && repo.stargazers_count > 0) {
+                            el.innerHTML = `★ ${repo.stargazers_count}`;
+                        }
+                    });
+
+                    const list = visible.filter(r => !GITHUB_FEATURED_REPOS.includes(r.name.toLowerCase()));
+                    ribbon.innerHTML = list.map(renderRepoCard).join('');
+                }
+
+                async function loadGithubRepos() {
+                    let cached = null;
+                    try {
+                        cached = JSON.parse(localStorage.getItem(GITHUB_CACHE_KEY) || 'null');
+                    } catch (e) { cached = null; }
+
+                    if (cached && Array.isArray(cached.repos) && Date.now() - cached.time < GITHUB_CACHE_TTL) {
+                        renderGithubRepos(cached.repos);
+                        return;
+                    }
+
+                    try {
+                        const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed&type=owner`, {
+                            headers: { 'Accept': 'application/vnd.github+json' }
+                        });
+                        if (!res.ok) throw new Error('GitHub API ' + res.status);
+                        const repos = (await res.json()).map(r => ({
+                            name: r.name, description: r.description, language: r.language,
+                            stargazers_count: r.stargazers_count, pushed_at: r.pushed_at,
+                            html_url: r.html_url, fork: r.fork, archived: r.archived
+                        }));
+                        try {
+                            localStorage.setItem(GITHUB_CACHE_KEY, JSON.stringify({ time: Date.now(), repos }));
+                        } catch (e) { /* depolama kapalı olabilir */ }
+                        renderGithubRepos(repos);
+                    } catch (err) {
+                        // Süresi geçmiş önbellek varsa onu, yoksa yedek listeyi göster
+                        renderGithubRepos(cached && Array.isArray(cached.repos) ? cached.repos : GITHUB_FALLBACK_REPOS);
+                    }
+                }
+
                 // DOM Yüklenince Ayarları Uygula
                 document.addEventListener('DOMContentLoaded', () => {
                     applyTheme(currentTheme);
                     applyLanguage(currentLang);
+                    loadGithubRepos();
                     setupScrollSpy();
                     checkLogoScroll();
                     handleRouting();
